@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff87CEFA),
+      backgroundColor: const Color(0xffabdfff),
       body: Obx(() {
         return (homeController.isLoading.value)
             ? loadingComponent()
@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                 color: homeController.isDayTime.value == 0
                     ? const Color(0xffffca7c)
                     : homeController.isDayTime.value == 1
-                        ? const Color(0xff87CEFA)
+                        ? const Color(0xffabdfff)
                         : homeController.isDayTime.value == 2
                             ? const Color(0xfffd9a73)
                             : const Color(0xff0b0b2e),
@@ -199,7 +199,7 @@ class HomePage extends StatelessWidget {
     return SizedBox(
       height: 165,
       width: MediaQuery.of(context).size.width,
-      child: (homeController.allTimeranges.isEmpty)
+      child: (homeController.allTimeranges.isEmpty && !homeController.showT.value.value.toString().contains('Data'))
           ? Container(
               width: MediaQuery.of(context).size.width / 4,
               alignment: Alignment.center,

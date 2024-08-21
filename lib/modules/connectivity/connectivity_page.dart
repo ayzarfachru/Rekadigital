@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'connectivity_controller.dart';
 
@@ -11,7 +10,7 @@ class ConnectivityPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff87CEFA),
+      backgroundColor: const Color(0xffabdfff),
       body: Obx(() {
         return connectivityController.isLoading.value
             ? loadingComponent()
@@ -37,11 +36,11 @@ class ConnectivityPage extends StatelessWidget {
   }
 
   Center buildText() {
-    return Center(
+    return const Center(
       child: Text(
         textAlign: TextAlign.center,
         'Ups...\nSilahkan cek kembali jaringan anda',
-        style: GoogleFonts.poppins(
+        style: TextStyle(
             fontSize: 20, color: Colors.white, fontWeight: FontWeight.w400),
       ),
     );
