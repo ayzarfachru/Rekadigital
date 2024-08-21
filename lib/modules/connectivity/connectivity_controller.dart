@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 class ConnectivityController extends GetxController {
   var isConnected = false.obs;
+  var isLoading = true.obs;
 
   Future<bool> _hasInternetConnection() async {
     try {
@@ -32,5 +33,6 @@ class ConnectivityController extends GetxController {
         print('No internet connection.');
       }
     }
+    Timer.periodic(const Duration(seconds: 3), (_) => isLoading(false));
   }
 }

@@ -5,7 +5,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'app/app_binding.dart';
 import 'app/app_pages.dart';
-import 'modules/connectivity/check_connectivity.dart';
+import 'modules/connectivity/connectivity_controller.dart';
 
 void main() {
   final ConnectivityController connectivityController =

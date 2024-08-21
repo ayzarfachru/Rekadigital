@@ -1,22 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'connectivity_controller.dart';
+
 class ConnectivityPage extends StatelessWidget {
+  final ConnectivityController connectivityController =
+      Get.put(ConnectivityController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff87CEFA),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            buildImage(),
-            buildText(),
-          ],
-        ),
-      ),
+      body: Obx(() {
+        return connectivityController.isLoading.value
+            ? loadingComponent()
+            : SafeArea(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    buildImage(),
+                    buildText(),
+                  ],
+                ),
+              );
+      }),
     );
+  }
+
+  Center loadingComponent() {
+    return const Center(
+              child: CircularProgressIndicator(
+              color: Colors.white,
+            ));
   }
 
   Center buildText() {

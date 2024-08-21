@@ -339,7 +339,7 @@ class HomeController extends GetxController {
                         .value
                         .toString() ==
                     '2') {
-              if (hour >= 6 && hour < 18) {
+              if (hour >= 5 && hour < 18) {
                 showWeather.value =
                     timeranges[indexWhereConditionMet - 1].values.first;
               } else {
